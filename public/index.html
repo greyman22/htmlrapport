@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073c2b">
+  <title>Rapportverkstan — från dokument till webb</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Hoppa till innehållet</a>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="Rapportverkstan, startsida"><span class="brand-mark" aria-hidden="true">r<span>↗</span></span><span>Rapportverkstan<small>FRÅN DOKUMENT TILL WEBB</small></span></a>
+    <span class="local-badge"><span aria-hidden="true"></span> Lokal arbetsyta</span>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">ETT ENKLARE SÄTT ATT DELA KUNSKAP</p><h1>Ge rapporten<br>ett liv på webben<span>.</span></h1>
+        <p class="intro">Från PDF eller Word till en läsbar HTML-sida.<br>Med innehållet i fokus och formen inspirerad av Vinnova.</p>
+        <div class="hero-tags"><span>Semantisk HTML</span><span>Bilder &amp; fotnoter</span><span>Helt lokalt</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="document-sheet"><div class="sheet-label">RAPPORT / 2025</div><div class="sheet-title">Kunskap som<br>gör skillnad.</div><div class="sheet-line"></div><div class="sheet-line short"></div><div class="chart"><i></i><i></i><i></i><i></i><i></i></div><span class="sheet-number">01 — 50</span></div><span class="transform-arrow">↗</span><div class="html-chip"><span>&lt;/&gt;</span> HTML</div></div>
+    </section>
+    <div class="workspace">
+      <section class="converter panel" aria-labelledby="convert-heading">
+        <div class="section-heading"><span class="step">01</span><div><p class="eyebrow">BÖRJA HÄR</p><h2 id="convert-heading">Välj din källa</h2></div><span class="format-badge">PDF / DOCX</span></div>
+        <div class="source-tabs" role="group" aria-label="Välj hur du vill lägga till en källa">
+          <button type="button" id="existing-tab" class="tab active" aria-pressed="true">Från källmappen</button>
+          <button type="button" id="upload-tab" class="tab" aria-pressed="false">Ladda upp en fil</button>
+        </div>
+        <div id="existing-panel">
+          <label for="source-select">Tillgängliga dokument</label>
+          <select id="source-select"><option value="">Hämtar dokument…</option></select>
+          <div id="source-info" class="source-info"></div>
+          <p class="hint">Filer från <code>sources</code> och tidigare uppladdningar visas här.</p>
+        </div>
+        <div id="upload-panel" hidden>
+          <label class="dropzone" id="dropzone" for="file-input"><span class="upload-icon" aria-hidden="true">↑</span><strong>Välj en fil eller dra den hit</strong><span>PDF eller Word (.docx), högst 30 MB</span></label>
+          <input id="file-input" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+          <p id="upload-status" class="hint" role="status"></p>
+        </div>
+        <div class="conversion-options"><span aria-hidden="true">✓</span><p>Rubriker, bilder och fotnoter följer med när källan medger det. PDF:ens originalsidor finns kvar för jämförelse.</p></div>
+        <button type="button" class="primary-button" id="convert-button" disabled>Konvertera till HTML <span aria-hidden="true">↗</span></button>
+        <p class="privacy-note">Inga dokument skickas till externa tjänster.</p>
+        <div id="progress-panel" class="progress-panel" hidden role="status" aria-live="polite"><div class="progress-title"><span class="spinner" aria-hidden="true"></span><strong id="progress-text">Förbereder…</strong></div><progress id="progress-bar" aria-label="Konverteringsförlopp"></progress><p>Större rapporter kan ta någon minut. Du kan lämna fliken öppen.</p></div>
+        <div id="error-panel" class="error-panel" hidden role="alert"></div>
+      </section>
+      <aside class="guide" aria-labelledby="guide-heading"><p class="eyebrow">FRÅN FIL TILL FÄRDIG FÖRHANDSVISNING</p><h2 id="guide-heading">Innehållet först.<br>Webben nästa.</h2>
+        <ol class="guide-steps"><li><span>1</span><div><h3>Välj ett dokument</h3><p>Använd en fil i källmappen eller ladda upp en egen PDF eller Word-fil.</p></div></li><li><span>2</span><div><h3>Vi bygger HTML-sidan</h3><p>Text och struktur blir webb. Bilder och diagram tas med, liksom fotnoter när de kan identifieras.</p></div></li><li><span>3</span><div><h3>Öppna, granska och ta vidare</h3><p>Läs i webbläsaren. Hämta sedan hela sidan eller ett HTML-fragment för vidare bearbetning.</p></div></li></ol>
+        <div class="review-note"><span aria-hidden="true">i</span><p><strong>En bra början, inte en publiceringsknapp.</strong> Kontrollera alltid läsordning, alternativtexter och tillgänglighet innan innehållet publiceras på vinnova.se.</p></div>
+      </aside>
+      <section id="result-panel" class="result-panel panel" hidden aria-labelledby="result-heading" tabindex="-1">
+        <div class="section-heading"><span class="step success">✓</span><div><p class="eyebrow">REDO ATT GRANSKAS</p><h2 id="result-heading">Din webbrapport är klar</h2></div></div>
+        <h3 id="result-title"></h3><div id="result-stats" class="result-stats"></div>
+        <div class="result-actions"><a id="result-open" class="primary-button" target="_blank" rel="noopener">Öppna HTML-sidan <span aria-hidden="true">↗</span></a><a id="result-download" class="secondary-button">Hämta HTML</a><a id="result-fragment" class="text-link">Hämta innehåll för CMS ↓</a></div>
+        <details id="warnings-details"><summary id="warnings-summary">Att kontrollera före publicering</summary><ul id="result-warnings"></ul></details>
+      </section>
+      <section class="strapi panel" aria-labelledby="strapi-heading">
+        <div class="section-heading"><span class="step">02</span><div><p class="eyebrow">STRAPI</p><h2 id="strapi-heading">Skapa artikelutkast i Strapi</h2></div></div>
+        <p class="hint">Skickar en tidigare konvertering som ett utkast med textblock, uppladdade bilder (prefix <code>rv-</code>) och tabeller som HTML-block. Inget publiceras.</p>
+        <label for="strapi-report">Rapport</label>
+        <select id="strapi-report"><option value="">Hämtar rapporter…</option></select>
+        <label class="check"><input type="checkbox" id="strapi-test"> Testläge (valfritt): bara första delen (till och med första text, bild och tabell)</label>
+        <div class="result-actions">
+          <button type="button" class="secondary-button" id="strapi-preview" disabled>Förhandsgranska</button>
+          <button type="button" class="primary-button" id="strapi-create" disabled>Skapa utkast i Strapi (lokal Strapi-instans)</button>
+        </div>
+        <p id="strapi-status" class="hint" role="status"></p>
+        <div id="strapi-result" hidden></div>
+      </section>
+      <section class="history" aria-labelledby="history-heading"><div class="history-heading"><div><p class="eyebrow">DIN ARBETSYTA</p><h2 id="history-heading">Tidigare konverteringar</h2></div><span id="history-count" class="count-badge">0</span></div><div id="history-list"><p class="empty-state">Hämtar tidigare rapporter…</p></div></section>
+    </div>
+  </main>
+  <footer class="site-footer"><span class="footer-name">Rapportverkstan <span>↗</span></span><p>En lokal prototyp för mer tillgänglig kunskap.<br>Inspirerad av vinnova.se. Inte en officiell Vinnova-tjänst.</p><span class="footer-version">PROTOTYP / 0.1</span></footer>
+</body>
+</html>

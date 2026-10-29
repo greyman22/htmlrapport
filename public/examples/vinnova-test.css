@@ -1,0 +1,98 @@
+/* Lägg i ett style-element i sidans head, inte i TinyMCE-fältet. */
+.rv-test {
+  --rv-nav-width: 220px;
+  --rv-nav-gap: 32px;
+  --rv-sticky-top: 112px;
+  --rv-title-offset: 380px;
+  display: flow-root;
+}
+
+.rv-test .rv-test-nav {
+  margin: 0 0 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #dce2dc;
+  border-bottom: 1px solid #dce2dc;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rv-test .rv-test-nav-title {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.rv-test .rv-test-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rv-test .rv-test-nav li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #dce2dc;
+}
+
+.rv-test .rv-test-nav li::before {
+  content: none;
+}
+
+.rv-test .rv-test-nav a {
+  display: block;
+  padding: 10px 4px;
+  color: #114599;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.rv-test a:focus-visible {
+  outline: 3px solid #763276;
+  outline-offset: 3px;
+}
+
+.rv-test .rv-test-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rv-test .rv-test-content section {
+  margin-bottom: 3rem;
+}
+
+.rv-test .rv-test-content h2,
+.rv-test .rv-test-content h3 {
+  scroll-margin-top: 128px;
+}
+
+@media (min-width: 1360px) {
+  /* Undvik att body blir en separat rullningsbehållare för sticky-menyn. */
+  body.page-publication:has(.rv-test) {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  /* Den befintliga overflow:hidden-behållaren hindrar annars viewport-sticky. */
+  body.page-publication:has(.rv-test) #area_main {
+    overflow: visible;
+  }
+
+  .rv-test .rv-test-nav {
+    position: sticky;
+    top: var(--rv-sticky-top);
+    float: left;
+    box-sizing: border-box;
+    width: var(--rv-nav-width);
+    margin-left: calc(0px - var(--rv-nav-width) - var(--rv-nav-gap));
+    /* Testsidans H1 ligger cirka 380 px ovanför redaktörsytan. */
+    margin-top: calc(0px - var(--rv-title-offset));
+    max-height: calc(100dvh - var(--rv-sticky-top) - 24px);
+    overflow-y: auto;
+  }
+}
+
+@media print {
+  .rv-test .rv-test-nav {
+    display: none;
+  }
+}

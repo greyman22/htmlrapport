@@ -1,0 +1,52 @@
+<!-- Klistra in fragmentet i TinyMCE:s HTML-läge. Lägg CSS separat i sidans head. -->
+<div class="rv-test">
+  <nav class="rv-test-nav" aria-label="Rapportens innehåll">
+    <p class="rv-test-nav-title">På den här sidan</p>
+    <ul>
+      <li><a href="#rv-sammanfattning">Sammanfattning</a></li>
+      <li><a href="#rv-bakgrund">Bakgrund och syfte</a></li>
+      <li><a href="#rv-resultat">Resultat</a></li>
+      <li><a href="#rv-slutsatser">Slutsatser</a></li>
+    </ul>
+  </nav>
+
+  <div class="rv-test-content">
+    <p><strong>Test av rapport i webbformat.</strong> Detta är ett exempel med dummy-innehåll. Sidans befintliga huvudrubrik, ingress, sidhuvud och sidfot används utan att dubbleras här.</p>
+
+    <section aria-labelledby="rv-sammanfattning">
+      <h2 id="rv-sammanfattning">Sammanfattning</h2>
+      <p>Innovation kan bidra till att lösa komplexa samhällsutmaningar. Den här exempelrapporten beskriver hur samverkan mellan företag, forskning och offentlig sektor kan skapa förutsättningar för hållbar utveckling.</p>
+      <p>Rapportens innehåll presenteras i en sammanhängande lässpalt. På breda skärmar ligger innehållsförteckningen till vänster. På mindre skärmar visas den ovanför texten. Länkarna leder direkt till respektive avsnitt.</p>
+      <p>Detta är endast testtext. Syftet är att prova layout, navigering och läsbarhet i den befintliga publikationssidtypen, inte att redovisa verkliga resultat.</p>
+    </section>
+
+    <section aria-labelledby="rv-bakgrund">
+      <h2 id="rv-bakgrund">Bakgrund och syfte</h2>
+      <p>Samhällets omställning kräver både ny kunskap och förmåga att omsätta kunskapen i praktiken. Många aktörer behöver arbeta tillsammans för att utveckla och testa nya lösningar.</p>
+      <p>I exemplet undersöker vi tre frågor: hur samarbeten kan utvecklas, hur mindre försök kan ge användbara lärdomar och hur resultaten kan göras tillgängliga för fler.</p>
+      <h3>Så är exemplet upplagt</h3>
+      <p>Texten använder sajtens befintliga typografi. Den extra stilmallen hanterar främst navigering, placering och mobilanpassning. Ingen JavaScript-kod eller extern bild behövs.</p>
+      <p>För en riktig rapport ersätts denna text av konverterade avsnitt. Varje rubrik får ett unikt id som används i innehållsförteckningen.</p>
+    </section>
+
+    <section aria-labelledby="rv-resultat">
+      <h2 id="rv-resultat">Resultat</h2>
+      <p>Exemplet visar hur en rapport kan läsas på webben utan att texten behöver flyttas till en egen sidtyp. Nedan finns några fiktiva observationer som ger tillräckligt med innehåll för att testa rullning.</p>
+      <ul>
+        <li>Tydliga rubriker gör det lättare att hitta rätt avsnitt.</li>
+        <li>Ankarlänkar underlättar navigering i längre rapporter.</li>
+        <li>En sammanhängande lässpalt behåller fokus på innehållet.</li>
+      </ul>
+      <p>När du rullar på en bred skärm ska menyn följa med inom rapportfragmentets höjd. Den ska stanna innan rapporten tar slut och inte lägga sig över publikationsuppgifter eller sidfot.</p>
+      <p>Kontrollera också att länkarna går att nå med tangentbord och att rubrikerna inte döljs av sidhuvudet efter ett klick. Detta är särskilt viktigt om sidhuvudets höjd ändras mellan olika skärmlägen.</p>
+    </section>
+
+    <section aria-labelledby="rv-slutsatser">
+      <h2 id="rv-slutsatser">Slutsatser</h2>
+      <p>En enkel webbrapport kan byggas med vanliga HTML-element och en liten sidspecifik stilmall. Den här lösningen är avsedd för ett redaktionellt test, inte som en färdig generell komponent för alla sidtyper.</p>
+      <p>Testa med lång och kort huvudrubrik, olika fönsterbredder och förstoring. Kontrollera även att TinyMCE bevarar klasser, id-attribut och navigeringslänkar när innehållet sparas och öppnas igen.</p>
+      <p>Om testet fungerar kan samma grund användas för rapportinnehåll från konverteringsappen. Nästa steg är då att pröva en riktig rapport med bilder, tabeller och fotnoter.</p>
+      <p><a href="#rv-sammanfattning">Tillbaka till sammanfattningen</a></p>
+    </section>
+  </div>
+</div>

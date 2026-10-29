@@ -1,0 +1,27 @@
+{
+  "name": "rapport-till-html",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Lokal konvertering av PDF- och Wordrapporter till läsbar HTML.",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "strapi:model": "node --env-file-if-exists=.env scripts/strapi-model.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.13",
+    "@xmldom/xmldom": "^0.9.12",
+    "express": "^5.3.0",
+    "htmlparser2": "^12.0.0",
+    "jszip": "^3.10.2",
+    "mammoth": "^1.13.0",
+    "multer": "^2.4.0",
+    "pdfjs-dist": "^6.4.299",
+    "sanitize-html": "^2.17.0"
+  }
+}

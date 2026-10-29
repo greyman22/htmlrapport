@@ -1,0 +1,6 @@
+node_modules/
+output/
+uploads/
+.env
+*.log
+/sources/vino-0027_life_science_2025_tillganglig.pdf
